@@ -1,0 +1,27 @@
+#server:
+#  port: 8001
+#
+#spring:
+#  application:
+#    name: product
+#  datasource:
+#    username: root
+#    password: root
+#    url: jdbc:mysql://120.79.7.246:3306/SpringCloud_Shell?characterEncoding=utf-8&useSSL=false
+#  jpa:
+#    show-sql: true
+
+spring:
+  application:
+    name: product
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: CONFIG
+      profile: dev
+
+eureka:
+  client:
+    server-url:
+      defaultZone: http://localhost:8671/eureka/
