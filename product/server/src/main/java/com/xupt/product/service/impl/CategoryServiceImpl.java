@@ -1,8 +1,8 @@
 package com.xupt.product.service.impl;
 
 import com.xupt.product.dataobject.ProductCategory;
-import com.xupt.product.repository.ProductCategoryRepository;
 import com.xupt.product.service.CategoryService;
+import com.xupt.product.repository.ProductCategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

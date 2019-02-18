@@ -1,13 +1,6 @@
 server:
   port: 8003
 
-eureka:
-  instance:
-    hostname: product-server
-  client:
-    server-url:
-      defaultZone: http://localhost:8671/eureka/
-
 spring:
   application:
     name: order
@@ -17,3 +10,12 @@ spring:
     url: jdbc:mysql://120.79.7.246:3306/SpringCloud_Shell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
+
+
+eureka:
+  instance:
+    ip-address: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    server-url:
+      defaultZone: http://localhost:8671/eureka/
+

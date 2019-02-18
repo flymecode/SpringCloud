@@ -2,15 +2,15 @@ server:
   port: 8001
 
 eureka:
-  instance:
-    hostname: product-server
+#  instance:
+#    ip-address: ${spring.cloud.client.ipAddress}:${server.port}
   client:
     server-url:
       defaultZone: http://localhost:8671/eureka/
 
 spring:
   application:
-    name: product-server
+    name: product
   datasource:
     username: root
     password: root
