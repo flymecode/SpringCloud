@@ -25,3 +25,4 @@ eureka:
   client:
     server-url:
       defaultZone: http://localhost:8671/eureka/
+
