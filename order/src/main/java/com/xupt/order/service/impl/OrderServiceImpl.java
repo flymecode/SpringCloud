@@ -15,6 +15,7 @@ import com.xupt.product.common.ProductInfoOutput;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -36,12 +37,20 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.genUniqueKey();
 
         // 查询商品信息
-        List<String> productIdList = orderDTO.getOrderDetailList().stream().map(OrderDetail::getProductId).collect(Collectors.toList());
+        // TODO
+        List<String> productIdList = orderDTO.getOrderDetailList().stream()
+        .map(OrderDetail::getProductId)
+        .collect(Collectors.toList());
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
+
+        // 读redis
+        // 减库存并将新的数值设置到redis中
+        // 订单入库异常，应该手动回滚
 
         // 计算总价
         BigDecimal orderAmount = new BigDecimal(BigInteger.ZERO);
