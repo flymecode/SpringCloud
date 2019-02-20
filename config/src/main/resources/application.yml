@@ -8,8 +8,8 @@ spring:
       server:
         git:
           uri: https://github.com/flymecode/config-mx
-          username: flymecode
-          password: maxu030510.
+          username: xxx
+          password: xxx
   rabbitmq:
     host: 120.79.7.246
     port: 5672
